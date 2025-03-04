@@ -6,16 +6,18 @@ import express from 'express'
 import { Liquid } from 'liquidjs';
 
 
-console.log('Hieronder moet je waarschijnlijk nog wat veranderen')
+console.log('Pages Loaded')
+
 // Doe een fetch naar de data die je nodig hebt
 // const apiResponse = await fetch('...')
-
+const milledoniData = await fetch('https://fdnd.directus.app/items/person/?sort=name&fields=*,squads.squad_id.name,squads.squad_id.cohort&filter={"_and":[{"squads":{"squad_id":{"tribe":{"name":"FDND Jaar 1"}}}},{"squads":{"squad_id":{"cohort":"2425"}}}]}')
 // Lees van de response van die fetch het JSON object in, waar we iets mee kunnen doen
 // const apiResponseJSON = await apiResponse.json()
-
+const milledoniResponseJSON = await milledoniData.json()
 // Controleer eventueel de data in je console
 // (Let op: dit is _niet_ de console van je browser, maar van NodeJS, in je terminal)
 // console.log(apiResponseJSON)
+console.log(milledoniResponseJSON)
 
 
 // Maak een nieuwe Express applicatie aan, waarin we de server configureren
@@ -24,6 +26,7 @@ const app = express()
 // Gebruik de map 'public' voor statische bestanden (resources zoals CSS, JavaScript, afbeeldingen en fonts)
 // Bestanden in deze map kunnen dus door de browser gebruikt worden
 app.use(express.static('public'))
+
 
 // Stel Liquid in als 'view engine'
 const engine = new Liquid();
@@ -37,7 +40,7 @@ app.set('views', './views')
 app.get('/', async function (request, response) {
    // Render index.liquid uit de Views map
    // Geef hier eventueel data aan mee
-   response.render('index.liquid')
+   response.render('index.liquid' , {Data: milledoniResponseJSON.data})
 })
 
 // Maak een POST route voor de index; hiermee kun je bijvoorbeeld formulieren afvangen
