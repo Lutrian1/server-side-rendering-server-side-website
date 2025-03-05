@@ -1,5 +1,65 @@
-{% render 'partials/head.liquid', title: 'Homepage', mainheading: 'Milledoni'  %}
+{% render 'partials/head.liquid', title: 'Homepage', mainheading: '<span>M</span>illedoni' , secondheading: 'Finding and sharing gifts ideas' %}
 
 <main>
-Succes!
+    <section class="searchTab">
+        <div class="suggestionBox">
+            <h3>I'm looking for a gift for...</h3>
+            <div class="suggestion1">
+                <p>Who is him/her</p>
+            </div>
+            <div class="suggestion2">
+                <p>age</p>
+            </div>
+            <div class="suggestion3">
+                <p>For which occasion</p>
+            </div>
+        </div>
+        <search class="searchItemBox">
+            <form action="">
+              <label for="search">I'm looking for a gift for..</label>
+              <div class="micIcon"></div>
+              <input type="search" id="search" name="q" />
+              <button type="submit">
+                <div class="magnifyingGlass"></div>
+              </button>
+            </form>
+        </search>
+        <div class="showActiveUsersBox">
+            <ul>
+                <li class="user1"><img src="/images/user1.png" alt=""></li>
+                <li class="user2"><img src="/images/user2.png" alt=""></li>
+                <li class="user3"><img src="/images/user3.png" alt=""></li>
+                <li class="userExtra"><img src="/images/usersExtra.png" alt="Over +1 Million  Users"></li>
+            </ul>
+            <p>Unisciti alla nostra community di spotters</p>
+        </div>
+    </section>
+    <section class="resultsTab">
+        <div class="itemBoxCreateList">
+            <a href="/profile">
+                <p>Create a list for your best friend</p>
+                <img src="/images/girl1.png" alt="">
+                <button>Registor or Log in</button>
+            </a>
+        </div>
+            {% for item in itemresults %}
+                <div class="itemBox">
+                        <a href="/item/{{ itemresult.id }}">
+                        <ul>
+                            <li>
+                                <button class="addListButton">
+                                    <div class="listIcon">
+                                        <div class="plusIcon">+</div>
+                                    </div>
+                                </button>
+                            </li>
+                            <li><img src="{{ itemResultImg.id }}"></li>
+                            <li>{{ item.name }}</li>
+                            <li><img src="/images/girl1.png" alt=""><img src="/images/user1.png" alt="">+{{ item.saved }}</li>
+                            <li><img src="/images/gifticon.png" alt="">+{{ item.given }}</li>
+                        </ul>
+                    </a>
+                </div>
+            {% endfor %}
+    </section>
 </main>
