@@ -1,8 +1,8 @@
 {% render 'partials/head.liquid', title: 'Homepage', mainheading: '<span>M</span>illedoni' , secondheading: 'Finding and sharing gifts ideas' %}
 
 <main>
-    <section class="searchTab">
-        <div class="suggestionBox">
+    <section class="search-Tab">
+        <div class="suggestion-Box">
             <h3>I'm looking for a gift for...</h3>
             <div class="suggestion1">
                 <p>Who is him/her</p>
@@ -14,49 +14,50 @@
                 <p>For which occasion</p>
             </div>
         </div>
-        <search class="searchItemBox">
+        <search class="search-Item-Box">
             <form action="">
               <label for="search">I'm looking for a gift for..</label>
-              <div class="micIcon"></div>
+              <div class="mic-Icon"></div>
               <input type="search" id="search" name="q" />
               <button type="submit">
-                <div class="magnifyingGlass"></div>
+                <div class="magnifying-Glass"></div>
               </button>
             </form>
         </search>
-        <div class="showActiveUsersBox">
+        <div class="show-Active-Users-Box">
             <ul>
                 <li class="user1"><img src="/images/user1.png" alt=""></li>
                 <li class="user2"><img src="/images/user2.png" alt=""></li>
                 <li class="user3"><img src="/images/user3.png" alt=""></li>
-                <li class="userExtra"><img src="/images/usersExtra.png" alt="Over +1 Million  Users"></li>
+                <li class="user-Extra"><img src="/images/usersExtra.png" alt="Over +1 Million  Users"></li>
             </ul>
             <p>Unisciti alla nostra community di spotters</p>
         </div>
     </section>
-    <section class="resultsTab">
-        <div class="itemBoxCreateList">
+    <section class="results-Tab">
+        <div class="item-Box-Create-List">
             <a href="/profile">
                 <p>Create a list for your best friend</p>
                 <img src="/images/girl1.png" alt="">
                 <button>Registor or Log in</button>
             </a>
         </div>
-            {% for item in itemresults %}
-                <div class="itemBox">
-                        <a href="/item/{{ itemresult.id }}">
+            {% for item in itemresult %}
+                <div class="item-Box">
+                        <a href="/item/{{ item.id }}">
                         <ul>
                             <li>
-                                <button class="addListButton">
-                                    <div class="listIcon">
-                                        <div class="plusIcon">+</div>
+                                <button class="add-List-Button">
+                                    <div class="list-Icon">
+                                        <div class="plus-Icon">+</div>
                                     </div>
                                 </button>
                             </li>
-                            <li><img src="{{ itemResultImg.id }}"></li>
+                            <li><img src="{{ item.image }}" alt=""></li>
                             <li>{{ item.name }}</li>
-                            <li><img src="/images/girl1.png" alt=""><img src="/images/user1.png" alt="">+{{ item.saved }}</li>
-                            <li><img src="/images/gifticon.png" alt="">+{{ item.given }}</li>
+                            <li>{{ item.spotter }}</li>
+                            <li><img src="/images/girl1.png" alt=""><img src="/images/user1.png" alt="">+{{ item.saved }}</li> <!-- Hierin komt data van een post bijvoorbeeld, Dus hoevaak deze is gesaved word hier getoond -->
+                            <li><img src="/images/gifticon.png" alt="">+{{ item.given }}</li> <!-- Hierin komt data van een post bijvoorbeeld, Dus hoevaak deze is gegeven word hier getoond -->
                         </ul>
                     </a>
                 </div>

@@ -1,0 +1,52 @@
+{% render 'partials/head.liquid', title: 'Homepage', mainheading: '<span>M</span>illedoni' , secondheading: 'Finding and sharing gifts ideas' %}
+ 
+<main>
+    <nav>
+        <a href="/">
+            <button class="back-Button"><div class="back-Arrow">↵</div>Back</button>
+        </a>
+    </nav>
+    <div class="left-Section">
+        <img src="{{ specificItem.image }}" alt="">
+    </div>
+    <div class="Right-Section">
+        <section class="top-Right-Section">
+            <h2>{{ specificItem.name }}</h2>
+            <button class="add-To-Button">Add to<div class="listIcon"></div></button>
+            <div class="show-Users">
+                <img src="/images/girl1.png" alt=""><img src="/images/user1.png" alt="">+{{ item.saved }}
+                <img src="/images/gifticon.png" alt="">+{{ item.given }}
+            </div>
+        </section>
+        <section class="middle-Right-Section">
+            <div class="part1">
+                <h2>Description</h2>
+                <p>{{ specificItem.description }}</p>
+            </div>
+            <div class="part2">
+                <div class="part2-Top-Box">
+                    <img src="/images/boxquestion.png" alt="">
+                    <p>WHY THIS GIFT The glue is non-toxic, so it's safe to eat or drink off repaired items. To retain the gold colour it is not advised to place items in the dishwasher.</p>
+                </div>
+                <div class="part2-Bottom-Box">
+                    <img src="/images/chefskiss.png" alt="">
+                    <p>GOOD TO KNOW One kit can repair approximately eight normal plates as per the images, with 3 full cracks.</p>
+                </div>
+            </div>
+        </section>
+        <section class="bottom-Right-Section"></section>
+        <h2>Where To Buy</h2>
+        <a href="{{ specificItem.shop_url }}">
+            <div class="suggestion-Item-Box">
+                <div>
+                    <img src="" alt="">
+                    <img src="/images/shopicon.png" alt="Shop button" aria-label="Buy item at {{ specificItem.shop_name }}">
+                </div>
+                <p>{{ specificItem.amount}}</p>
+                <p>{{ specificItem.shop_name }}</p>
+            </div>
+        </a>
+    </div>
+</main>
+
+

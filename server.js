@@ -10,14 +10,14 @@ console.log('Pages Loaded')
 
 // Doe een fetch naar de data die je nodig hebt
 // const apiResponse = await fetch('...')
-const milledoniData = await fetch('https://fdnd.directus.app/items/person/?sort=name&fields=*,squads.squad_id.name,squads.squad_id.cohort&filter={"_and":[{"squads":{"squad_id":{"tribe":{"name":"FDND Jaar 1"}}}},{"squads":{"squad_id":{"cohort":"2425"}}}]}')
+const milledoniData = await fetch('https://fdnd-agency.directus.app/items/milledoni_products')
 // Lees van de response van die fetch het JSON object in, waar we iets mee kunnen doen
 // const apiResponseJSON = await apiResponse.json()
 const milledoniResponseJSON = await milledoniData.json()
 // Controleer eventueel de data in je console
 // (Let op: dit is _niet_ de console van je browser, maar van NodeJS, in je terminal)
 // console.log(apiResponseJSON)
-console.log(milledoniResponseJSON)
+console.log(milledoniResponseJSON)  
 
 
 // Maak een nieuwe Express applicatie aan, waarin we de server configureren
@@ -38,9 +38,25 @@ app.set('views', './views')
 
 // Maak een GET route voor de index (meestal doe je dit in de root, als /)
 app.get('/', async function (request, response) {
+
+  const itemsResponse = await fetch('https://fdnd-agency.directus.app/items/milledoni_products') // Luuk: Pas dit aan naar een filter voor de homepage dus soorteren op saves bijv /)
+
+  // En haal daarvan de JSON op
+  const itemsResponseJSON = await itemsResponse.json()
    // Render index.liquid uit de Views map
    // Geef hier eventueel data aan mee
-   response.render('index.liquid' , {Data: milledoniResponseJSON.data})
+   response.render('index.liquid' , {allData: milledoniResponseJSON.data, itemresult: itemsResponseJSON.data })
+})
+
+app.get('/item/:id', async function (request, response) {
+  // Gebruik de request parameter id en haal de juiste persoon uit de WHOIS API op
+  const specificItemResponse = await fetch('https://fdnd-agency.directus.app/items/milledoni_products/' + request.params.id)
+  // En haal daarvan de JSON op
+  const specificItemResponseJSON = await specificItemResponse.json()
+  
+  // Render student.liquid uit de views map en geef de opgehaalde data mee als variable, genaamd person
+  // Geef ook de eerder opgehaalde squad data mee aan de view
+  response.render('specificItem.liquid', {specificItem: specificItemResponseJSON .data})
 })
 
 // Maak een POST route voor de index; hiermee kun je bijvoorbeeld formulieren afvangen
