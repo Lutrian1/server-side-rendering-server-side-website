@@ -53,7 +53,7 @@ app.get('/gift/:id', async function (request, response) {
   const specificGiftResponse = await fetch(`https://fdnd-agency.directus.app/items/milledoni_products/${request.params.id}`);
 
   const specificGiftResponseJSON = await specificGiftResponse.json();
-  
+
   response.render('specificGift.liquid', { specificGift: specificGiftResponseJSON.data });
 });
 
@@ -76,7 +76,7 @@ app.post('/save-gift', express.urlencoded({ extended: true }), async function (r
 
 // Route om de likes te laten zien
 app.get('/mysavedgifts', function (request, response) {
-    response.render('likepage.liquid', { savedGifts: savedGifts });
+    response.render('mygiftpage.liquid', { savedGifts: savedGifts });
 });
 
 
