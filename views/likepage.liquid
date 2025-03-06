@@ -1,0 +1,26 @@
+{% render 'partials/head.liquid', title: 'My Liked Gifts', mainheading: '<span>M</span>illedoni', secondheading: 'Your saved gift ideas' %}
+
+<main>
+    <section class="liked-gifts">
+        <h2>Your Saved Gifts</h2>
+        {% if savedGifts.length > 0 %}
+            <div class="gift-list">
+                {% for gift in savedGifts %}
+                    <div class="gift-Box">
+                        <a href="/gift/{{ gift.id }}">
+                            <ul>
+                                <li><img src="{{ gift.image }}" alt=""></li>
+                                <li>{{ gift.name }}</li>
+                                <li>{{ gift.spotter }}</li>
+                                <li><img src="/images/girl1.png" alt=""><img src="/images/user1.png" alt="">+{{ gift.saved }}</li>
+                                <li><img src="/images/gifticon.png" alt="">+{{ gift.given }}</li>
+                            </ul>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>No gifts saved yet.</p>
+        {% endif %}
+    </section>
+</main>

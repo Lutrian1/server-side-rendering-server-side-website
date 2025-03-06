@@ -39,25 +39,46 @@ app.set('views', './views')
 // Maak een GET route voor de index (meestal doe je dit in de root, als /)
 app.get('/', async function (request, response) {
 
-  const itemsResponse = await fetch('https://fdnd-agency.directus.app/items/milledoni_products') // Luuk: Pas dit aan naar een filter voor de homepage dus soorteren op saves bijv /)
+  const giftsResponse = await fetch('https://fdnd-agency.directus.app/items/milledoni_products') // Luuk: Pas dit aan naar een filter voor de homepage dus soorteren op saves bijv /)
 
   // En haal daarvan de JSON op
-  const itemsResponseJSON = await itemsResponse.json()
+  const giftsResponseJSON = await giftsResponse.json()
    // Render index.liquid uit de Views map
    // Geef hier eventueel data aan mee
-   response.render('index.liquid' , {allData: milledoniResponseJSON.data, itemresult: itemsResponseJSON.data })
+   response.render('index.liquid' , {allData: milledoniResponseJSON.data, giftresult: giftsResponseJSON.data })
 })
 
-app.get('/item/:id', async function (request, response) {
-  // Gebruik de request parameter id en haal de juiste persoon uit de WHOIS API op
-  const specificItemResponse = await fetch('https://fdnd-agency.directus.app/items/milledoni_products/' + request.params.id)
-  // En haal daarvan de JSON op
-  const specificItemResponseJSON = await specificItemResponse.json()
+app.get('/gift/:id', async function (request, response) {
+
+  const specificGiftResponse = await fetch(`https://fdnd-agency.directus.app/items/milledoni_products/${request.params.id}`);
+
+  const specificGiftResponseJSON = await specificGiftResponse.json();
   
-  // Render student.liquid uit de views map en geef de opgehaalde data mee als variable, genaamd person
-  // Geef ook de eerder opgehaalde squad data mee aan de view
-  response.render('specificItem.liquid', {specificItem: specificItemResponseJSON .data})
-})
+  response.render('specificGift.liquid', { specificGift: specificGiftResponseJSON.data });
+});
+
+let savedGifts = [];
+
+// POST route om de gift op te slaan
+app.post('/save-gift', express.urlencoded({ extended: true }), async function (request, response) {
+    const giftId = request.body.giftId;
+
+    // Fetch gift details van API met giftId
+    const giftResponse = await fetch(`https://fdnd-agency.directus.app/items/milledoni_products/${giftId}`);
+    const giftData = await giftResponse.json();
+
+    // voeg toe aan de 'savedGifts' array
+    savedGifts.push(giftData.data);
+
+    // Redirect naar homepage (Doe dit voor meerdere pages, voor nu alleen index)
+    response.redirect('/');
+});
+
+// Route om de likes te laten zien
+app.get('/mysavedgifts', function (request, response) {
+    response.render('likepage.liquid', { savedGifts: savedGifts });
+});
+
 
 // Maak een POST route voor de index; hiermee kun je bijvoorbeeld formulieren afvangen
 // Hier doen we nu nog niets mee, maar je kunt er mee spelen als je wilt

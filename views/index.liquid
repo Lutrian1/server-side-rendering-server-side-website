@@ -1,4 +1,4 @@
-{% render 'partials/head.liquid', title: 'Homepage', mainheading: '<span>M</span>illedoni' , secondheading: 'Finding and sharing gifts ideas' %}
+{% render 'partials/head.liquid', title: 'Homepage', mainheading: '<span>M</span>illedoni' , secondheading: 'Finding and sharing gift ideas' %}
 
 <main>
     <section class="search-Tab">
@@ -35,32 +35,36 @@
         </div>
     </section>
     <section class="results-Tab">
-        <div class="item-Box-Create-List">
+        <div class="gift-Box-Create-List">
             <a href="/profile">
                 <p>Create a list for your best friend</p>
                 <img src="/images/girl1.png" alt="">
-                <button>Registor or Log in</button>
+                <button>Register or Log in</button>
             </a>
         </div>
-            {% for item in itemresult %}
-                <div class="item-Box">
-                        <a href="/item/{{ item.id }}">
+            {% for gift in giftresult %}
+                <div class="gift-Box">
+                        <a href="/gift/{{ gift.id }}">
                         <ul>
                             <li>
-                                <button class="add-List-Button">
-                                    <div class="list-Icon">
-                                        <div class="plus-Icon">+</div>
-                                    </div>
-                                </button>
+                                <form action="/save-gift" method="POST">
+                                    <input type="hidden" name="giftId" value="{{ gift.id }}">
+                                    <button type="submit" class="add-List-Button">
+                                        <div class="list-Icon">
+                                            <div class="plus-Icon">+</div>
+                                        </div>
+                                    </button>
+                                </form>
                             </li>
-                            <li><img src="{{ item.image }}" alt=""></li>
-                            <li>{{ item.name }}</li>
-                            <li>{{ item.spotter }}</li>
-                            <li><img src="/images/girl1.png" alt=""><img src="/images/user1.png" alt="">+{{ item.saved }}</li> <!-- Hierin komt data van een post bijvoorbeeld, Dus hoevaak deze is gesaved word hier getoond -->
-                            <li><img src="/images/gifticon.png" alt="">+{{ item.given }}</li> <!-- Hierin komt data van een post bijvoorbeeld, Dus hoevaak deze is gegeven word hier getoond -->
+                            <li><img src="{{ gift.image }}" alt=""></li>
+                            <li>{{ gift.name }}</li>
+                            <li>{{ gift.spotter }}</li>
+                            <li><img src="/images/girl1.png" alt=""><img src="/images/user1.png" alt="">+{{ gift.saved }}</li>
+                            <li><img src="/images/gifticon.png" alt="">+{{ gift.given }}</li>
                         </ul>
                     </a>
                 </div>
             {% endfor %}
+            <a href="/mysavedgifts">View Saved Items</a>
     </section>
 </main>

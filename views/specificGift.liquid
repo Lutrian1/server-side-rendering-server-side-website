@@ -7,21 +7,21 @@
         </a>
     </nav>
     <div class="left-Section">
-        <img src="{{ specificItem.image }}" alt="">
+        <img src="{{ specificGift.image }}" alt="">
     </div>
     <div class="Right-Section">
         <section class="top-Right-Section">
-            <h2>{{ specificItem.name }}</h2>
+            <h2>{{ specificGift.name }}</h2>
             <button class="add-To-Button">Add to<div class="listIcon"></div></button>
             <div class="show-Users">
-                <img src="/images/girl1.png" alt=""><img src="/images/user1.png" alt="">+{{ item.saved }}
-                <img src="/images/gifticon.png" alt="">+{{ item.given }}
+                <img src="/images/girl1.png" alt=""><img src="/images/user1.png" alt="">+{{ gift.saved }}
+                <img src="/images/gifticon.png" alt="">+{{ gift.given }}
             </div>
         </section>
         <section class="middle-Right-Section">
             <div class="part1">
                 <h2>Description</h2>
-                <p>{{ specificItem.description }}</p>
+                <p>{{ specificGift.description }}</p>
             </div>
             <div class="part2">
                 <div class="part2-Top-Box">
@@ -36,14 +36,14 @@
         </section>
         <section class="bottom-Right-Section"></section>
         <h2>Where To Buy</h2>
-        <a href="{{ specificItem.shop_url }}">
+        <a href="{{ specificGift.shop_url }}">
             <div class="suggestion-Item-Box">
                 <div>
                     <img src="" alt="">
-                    <img src="/images/shopicon.png" alt="Shop button" aria-label="Buy item at {{ specificItem.shop_name }}">
+                    <img src="/images/shopicon.png" alt="Shop button" aria-label="Buy item at {{ specificGift.shop_name }}">
                 </div>
-                <p>{{ specificItem.amount}}</p>
-                <p>{{ specificItem.shop_name }}</p>
+                <p>{{ specificGift.amount}}</p>
+                <p>{{ specificGift.shop_name }}</p>
             </div>
         </a>
     </div>
