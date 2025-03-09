@@ -1,0 +1,86 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    font-family: var(--main-font);
+    li{
+        list-style: none;
+    }
+    a{
+        text-decoration: none;
+        color:var(--main-text-color);
+    }
+}
+
+body{
+    /*----------------------------------- ALLE VARIABLEN --------------------------------------*/
+
+    /*fonts*/  
+        --main-font: 'Palanquin', sans-serif;
+
+    /* font-size-headings */
+        --h1: 60px;
+        --h2: 40px;
+        --h3: 24px;
+        --main-p: 16.6px;
+        --big-text: 20px;
+        --big-important-text: 24px;
+
+    /*font-weight*/
+        --regular: 400;
+        --medium: 500;
+        --semi-bold: 600;
+        --bold: 800;
+
+    /*colors*/
+        --primary-color: #FEFCFA;
+        --main-text-color: #000000;
+        --alt-text-color: #FFFFFF;
+        --results-tab-background-color: #EDEDED;
+    /*Spacing*/
+    
+
+    /*Buttons*/
+
+    /*----------------------------------- VARIABLEN MEEGEVEN AAN BIJBEHOORENDE HTML --------------------------------------*/
+    
+    h1{
+        font-size: var(--h1);
+        font-weight: var(--bold); 
+    }
+
+    h2{
+        font-size: var(--h2);
+    }
+
+    h3{
+        font-size: var(--h3);
+        margin: 0;
+        padding: 0;
+    }
+
+    p{
+        font-size: var(--main-p);
+    }
+
+    /*-----------------------------------HEADER STYLING, DIT GELDT DUS VOOR ELKE PAGINA --------------------------------------*/
+
+    header{
+        h1{
+            --cadeau-strik-image-width: 39.4px;
+            margin: 26px 0px 0px calc(44px - var(--cadeau-strik-image-width)); /* Min Grootte van de Image = -39.4px */
+            span {
+                font-size: 80px;
+                img{
+                    font-stretch: expanded; /* moet binnenkort font-width worden*/
+                    position: relative;
+                    left: 59px; /* Cadeau strik in het midden van M*/
+                }
+            }
+        }
+        h3{
+            margin: 0px 0px 0px 44px; /* Min Grootte van de Image = -39.4px */
+        }
+    }
+
+}
+

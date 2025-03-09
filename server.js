@@ -60,7 +60,7 @@ app.get('/gift/:id', async function (request, response) {
 let savedGifts = [];
 
 // POST route om de gift op te slaan
-app.post('/save-gift', express.urlencoded({ extended: true }), async function (request, response) {
+app.post('/save-gift', express.urlencoded({ extended: true }), async function (request, response) { //express zet het ruwe http format (kan je zien in console van browser) om naar een prettig json object
     const giftId = request.body.giftId;
 
     // Fetch gift details van API met giftId
@@ -71,6 +71,7 @@ app.post('/save-gift', express.urlencoded({ extended: true }), async function (r
     savedGifts.push(giftData.data);
 
     // Redirect naar homepage (Doe dit voor meerdere pages, voor nu alleen index)
+    
     response.redirect('/');
 });
 
