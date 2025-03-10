@@ -81,10 +81,15 @@ app.get('/mysavedgifts', function (request, response) {
     response.render('mygiftpage.liquid', { savedGifts: savedGifts });
 });
 
+// Redirect invalide path van :id gift naar home
 
-// Redirect alle invalide paths naar home, verander dit ooit naar een 404
+app.get('/gift/{*splat}', function (request, response) {
+  response.redirect('/');
+});
+
+// Redirect alle invalide paths naar 404
 app.get('/{*splat}', function (request, response) {
-    response.redirect('/');
+  response.status(404).render('404.liquid');
 }); 
 
 // Stel het poortnummer in waar Express op moet gaan luisteren

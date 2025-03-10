@@ -1,7 +1,8 @@
 html, body{
-    margin: 0;
+    margin: 1vw;
     padding: 0;
     font-family: var(--main-font);
+    background-color: var(--main-background-color);
     li{
         list-style: none;
     }
@@ -15,7 +16,7 @@ body{
     /*----------------------------------- ALLE VARIABLEN --------------------------------------*/
 
     /*fonts*/  
-        --main-font: 'Palanquin', sans-serif;
+        --main-font: 'Parkinsans', sans-serif;
 
     /* font-size-headings */
         --h1: 60px;
@@ -35,11 +36,12 @@ body{
         --primary-color: #FEFCFA;
         --main-text-color: #000000;
         --alt-text-color: #FFFFFF;
+        --main-background-color: #F6F5F5; 
         --results-tab-background-color: #EDEDED;
-    /*Spacing*/
-    
 
+        
     /*Buttons*/
+        --button-background-color: #FFFFFF;
 
     /*----------------------------------- VARIABLEN MEEGEVEN AAN BIJBEHOORENDE HTML --------------------------------------*/
     
@@ -62,7 +64,7 @@ body{
         font-size: var(--main-p);
     }
 
-    /*-----------------------------------HEADER STYLING, DIT GELDT DUS VOOR ELKE PAGINA --------------------------------------*/
+    /*----------------------------------- HEADER STYLING, DIT GELDT DUS VOOR ELKE PAGINA --------------------------------------*/
 
     header{
         h1{
@@ -71,16 +73,61 @@ body{
             span {
                 font-size: 80px;
                 img{
-                    font-stretch: expanded; /* moet binnenkort font-width worden*/
                     position: relative;
                     left: 59px; /* Cadeau strik in het midden van M*/
                 }
             }
         }
         h3{
-            margin: 0px 0px 0px 44px; /* Min Grootte van de Image = -39.4px */
+            margin: 0px auto 0px 44px; /* Min Grootte van de Image = -39.4px */
+        }
+        nav{
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
         }
     }
 
 }
 
+    /*----------------------------------- Buttons --------------------------------------*/
+
+/* Algemene button styling */
+button{
+    font-family: var(--main-font);
+    font-weight: var(--semi-bold);
+    margin: 5px;
+    background-color: var(--button-background-color);
+    box-shadow: 5px 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.list-Button-Box{
+    margin-top: -50px;
+    .list-Button{
+        display: flex;
+        align-items: center;
+        border: 1px solid #E8E8E8;
+        border-radius: 50px;
+        width: 150px;
+        height: 40px;
+        img{
+            margin-left: 10px;
+            width: 15px;
+            height: 20px;
+        }
+    }
+}
+
+.profile-Button-Box{
+    margin-top: -50px;
+    .profile-Button{
+        border-radius: 50%;
+        border: 1px solid #E8E8E8;
+        height: 40px;
+        width: 40px;
+        img{
+            width: 25px;
+            height: 30px;
+        }
+    }
+}

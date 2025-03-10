@@ -12,19 +12,21 @@
     
     <script src="scripts/script.js" defer></script>
   </head>
-<body>  
+  <body>  
     <header>
         <h1>{{ logo }}</h1>
-        <h3>{{ slogan }}</h3>
-        <a href="/mylist" class="listButtonBox">
-          <button class="listButton">
-            Create Your List
-            <div class="saveIcon"></div>
-          </button>
-        </a>
-        <a href="/profile" class="profileButtonBox">
-          <button class="profileButton" aria-label="Profile">
-            <div class="ProfileIcon"></div>
-          </button>
-        </a>
+        <nav>
+          <h3>{{ slogan }}</h3>
+          <a href="/mylist" class="list-Button-Box">
+            <button class="list-Button">
+              Create Your List
+              <img src="/images/saveIcon.png" class="save-Icon"></div>
+            </button>
+          </a>
+          <a href="/profile" class="profile-Button-Box">
+            <button class="profile-Button" aria-label="Profile">
+              <img src="/images/profileIcon.png" class="Profile-Icon"></div>
+            </button>
+          </a>
+        </nav>
     </header>
