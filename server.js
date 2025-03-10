@@ -55,6 +55,7 @@ app.get('/gift/:id', async function (request, response) {
   const specificGiftResponseJSON = await specificGiftResponse.json();
 
   response.render('specificGift.liquid', { specificGift: specificGiftResponseJSON.data });
+  
 });
 
 let savedGifts = [];
@@ -81,13 +82,10 @@ app.get('/mysavedgifts', function (request, response) {
 });
 
 
-// Maak een POST route voor de index; hiermee kun je bijvoorbeeld formulieren afvangen
-// Hier doen we nu nog niets mee, maar je kunt er mee spelen als je wilt
-app.post('/', async function (request, response) {
-  // Je zou hier data kunnen opslaan, of veranderen, of wat je maar wilt
-  // Er is nog geen afhandeling van een POST, dus stuur de bezoeker terug naar /
-  response.redirect(303, '/')
-})
+// Redirect alle invalide paths naar home, verander dit ooit naar een 404
+app.get('/{*splat}', function (request, response) {
+    response.redirect('/');
+}); 
 
 // Stel het poortnummer in waar Express op moet gaan luisteren
 // Lokaal is dit poort 8000, als dit ergens gehost wordt, is het waarschijnlijk poort 80
