@@ -1,18 +1,21 @@
-{% render 'partials/head.liquid', title: 'Homepage', logo: '<span><img src="/images/schaarinM.png" alt="">M</span>ILLEDONI' , slogan: 'Finding and sharing gift ideas' %}
+{% render 'partials/head.liquid', title: 'Homepage', logo: '<span class="Logo"><img src="/images/schaarinM.png" alt="">M</span><span class="Rest">ILLEDONI</span>' , slogan: 'Finding and sharing gift ideas' %}
 
 <main>
     <section class="chat-Tab">
         <div class="suggestion-Box">
             <h2>I'm looking for a gift for...</h2>
-            <div class="suggestion1">
-                <p>Who is him/her</p>
-            </div>
-            <div class="suggestion2">
-                <p>age</p>
-            </div>
-            <div class="suggestion3">
-                <p>For which occasion</p>
-            </div>
+            <!-- 
+            <select name="Him/Her" class="suggestion-Button-1">
+                <option value="Him">Him</option>
+                <option value="Her">Her</option>
+            </select>
+            <select name="age" class="suggestion-Button-2">
+                <option value="">Age</option>
+                <option value="0-3">0-3</option>
+                <option value="5-8">5-8</option>
+                <option value="9-12">9-12</option>
+            </select>
+            !-->
         </div>
         <search class="search-Item-Box">
             <form action="">
@@ -30,8 +33,8 @@
                 <li class="user2"><img src="/images/user2.png" alt=""></li>
                 <li class="user3"><img src="/images/user3.png" alt=""></li>
                 <li class="user-Extra"><img src="/images/usersExtra.png" alt="Over +1 Million  Users"></li>
+                <li><p>Unisciti alla nostra community di spotters</p></li>
             </ul>
-            <p>Unisciti alla nostra community di spotters</p>
         </div>
     </section>
     <section class="results-Tab">
@@ -74,6 +77,6 @@
                 </a>
             </div>
         {% endfor %}
-        <a href="/mysavedgifts">View Saved Items</a>
     </section>
+    <a href="/mysavedgifts">View Saved Items</a>
 </main>

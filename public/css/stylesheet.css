@@ -70,8 +70,15 @@ body{
         h1{
             --cadeau-strik-image-width: 39.4px;
             margin: 26px 0px 0px calc(44px - var(--cadeau-strik-image-width)); /* Min Grootte van de Image = -39.4px */
-            span {
+            letter-spacing: 0.5rem;
+            span.Logo{
                 font-size: 80px;
+                @media (min-width: 0px) {
+                    margin-left: -40px
+                }
+                @media (min-width: 1340px) {
+                    margin-left: 0px
+                }
                 img{
                     position: relative;
                     left: 59px; /* Cadeau strik in het midden van M*/
@@ -79,15 +86,56 @@ body{
             }
         }
         h3{
-            margin: 0px auto 0px 44px; /* Min Grootte van de Image = -39.4px */
+            @media (min-width: 0px) {
+                margin: 0;
+            }
+            @media (min-width: 1340px) {
+                margin: 0px auto 0px 44px; /* Min Grootte van de Image = -39.4px */
+            }
         }
         nav{
             display: flex;
             justify-content: flex-end;
             align-items: center;
         }
+        @media (min-width: 0px) {
+            span.Rest{
+                display: none;
+            }
+            .list-Button-Box{
+                margin-top: -115px;
+                .list-Button{
+                    position: sticky;
+                    width: 50px;
+                    height: 50px;
+                    #text{
+                        display: none;
+                    }
+                }
+            }
+            .profile-Button-Box{
+                margin-top: -115px;
+            } 
+        }
+        @media (min-width: 1340px) {
+            span.Rest{
+                display: inline-block;
+            }
+            .list-Button-Box{
+                margin-top: -50px;
+                .list-Button{
+                    width: 150px;
+                    height: 40px;
+                    #text{
+                        display: inline-block;
+                    }
+                } 
+            }
+            .profile-Button-Box{
+                margin-top: -50px;
+            } 
+        }
     }
-
 }
 
     /*----------------------------------- Buttons --------------------------------------*/
@@ -101,33 +149,25 @@ button{
     box-shadow: 5px 3px 10px rgb(0 0 0 / 0.2);
 }
 
-.list-Button-Box{
-    margin-top: -50px;
-    .list-Button{
-        display: flex;
-        align-items: center;
-        border: 1px solid #E8E8E8;
-        border-radius: 50px;
-        width: 150px;
-        height: 40px;
-        img{
-            margin-left: 10px;
-            width: 15px;
-            height: 20px;
-        }
+.list-Button{
+    display: flex;
+    align-items: center;
+    border: 1px solid #E8E8E8;
+    border-radius: 50px;
+    img{
+        margin-left: 10px;
+        width: 15px;
+        height: 20px;
     }
 }
 
-.profile-Button-Box{
-    margin-top: -50px;
-    .profile-Button{
-        border-radius: 50%;
-        border: 1px solid #E8E8E8;
-        height: 40px;
-        width: 40px;
-        img{
-            width: 25px;
-            height: 30px;
-        }
+.profile-Button{
+    border-radius: 50%;
+    border: 1px solid #E8E8E8;
+    height: 50px;
+    width: 50px;
+    img{
+        width: 25px;
+        height: 30px;
     }
 }

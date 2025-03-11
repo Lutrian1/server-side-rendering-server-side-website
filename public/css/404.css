@@ -6,6 +6,8 @@ body{
         display: flex;
         justify-content: center;
         text-decoration: underline;
-        color:red;
+    }
+    h2:hover{
+        color: blue;
     }
 }
