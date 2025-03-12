@@ -31,19 +31,71 @@ https://github.com/user-attachments/assets/cd4ed91e-428a-47ae-b705-9505baed3e39
 
 ## Kenmerken
 
-### NoteJS
-App.Post
+### Liquid Templates
 
-App.Get
+#### For Loop
 
-### HTML
-For loop met img inladen
+https://github.com/Lutrian1/server-side-rendering-server-side-website/blob/3610cfdfb0eb07aa231b6cdf48787bc3221ecf56/views/index.liquid#L47-L72
+
+In de for loop word voor elke data uit de directus een article gemaakt met daarin specifieke dingen uit de directus, Dingen zoals de gift name of image kan je dan met een server code meegeven in de for loop.
+
+<img width="1217" alt="image" src="https://github.com/user-attachments/assets/aa24dbc7-403c-4114-89a2-4a90344cf7af" />
+
+https://github.com/Lutrian1/server-side-rendering-server-side-website/blob/3610cfdfb0eb07aa231b6cdf48787bc3221ecf56/server.js#L40-L49
+
+In regel 59 heb ik voorbeeld een server code met de code:
+
+https://github.com/Lutrian1/server-side-rendering-server-side-website/blob/3610cfdfb0eb07aa231b6cdf48787bc3221ecf56/views/index.liquid#L59
+
+de {{ gift.Image }} in de img src "", toont dus de image van de directus voor dat item. Waardoor elke data dynamisch is.
+
+
+### Specifieke gift page
+
+https://github.com/Lutrian1/server-side-rendering-server-side-website/blob/3610cfdfb0eb07aa231b6cdf48787bc3221ecf56/views/index.liquid#L49
+
+In mijn html creeër ik een pagina voor elke specifieke gift.
+
+https://github.com/Lutrian1/server-side-rendering-server-side-website/blob/26703c537048c3e73c18ae93ff8a6eb11479e43e/server.js#L51-L59
+
+Nadat je heb geklikt op een gift, fetched hij data uit de directus van die specifieke gift en post dit in de html. De belangrijkste regel is de request.params.id. Dit zorgt ervoor dat de data dynamisch is, en ik voor elke gift dus een andere inhoud op de pagina heb.
+
+### Save Button
+
+https://github.com/Lutrian1/server-side-rendering-server-side-website/blob/3610cfdfb0eb07aa231b6cdf48787bc3221ecf56/views/index.liquid#L51-L58
+
+In het kort geeft dit data mee aan een pagina dat niet bestaat. Ik gebruik hiervoor een form met de action /save-gift. Het post het dus naar een link waar je niet naar toe kan. Ik haal data uit deze link en toon het op een pagina waar je wel naar kan navigeren:
+
+https://github.com/Lutrian1/server-side-rendering-server-side-website/blob/26703c537048c3e73c18ae93ff8a6eb11479e43e/server.js#L61-L82
+
+In regel 61 maak ik een lege array die dus word gevuld met data uit de save knop. Deze array word meegegeven met een app get naar de /mysavedgift (mygiftpage.liquid) in regel tot 82.
+
+Om de specifieke gift toe te voegen gebruik ik de GiftId variablen. De specifieke gifts worden uiteindelijk gepushed naar de save gifts, en daarna geredirect aan de homepage. 
+
+### Reroute en 404.
+
+#### Reroute: 
+
+https://github.com/Lutrian1/server-side-rendering-server-side-website/blob/3610cfdfb0eb07aa231b6cdf48787bc3221ecf56/server.js#L86-L88
+
+Hierin word je terug gestuurd naar de lege pagina als je een verkeerde gift id invoerd. 
+
+#### 404:
+
+https://github.com/Lutrian1/server-side-rendering-server-side-website/blob/3610cfdfb0eb07aa231b6cdf48787bc3221ecf56/server.js#L91-L93
+
+Als je een niet bestaande route invoert, toont hij een 404 page. Ik render een 404 page met specifieke styling. Het belangrijkste is de response staus 404, zodat de browser weet dat dit een 404 is. 
+
+#### Het gebruik van {*splat}
+
+In express 4 kon je gebruik maken van het '*', Dit betekent eigenlijk alles. Dus alles dat verkeerde word ingevoerd na een route (bijvoorbeeld: /oigwogee), word getoond als 404. In express 5 word gebruik gemaakt van de *splat, ik weet niet wat dit inhoud, maar dit is nodig om dezelfde werking te behouden. Zie documentatie van Expressjs: https://expressjs.com/en/guide/migrating-5.html#path-syntax
 
 ### Vragen
 
 Veel staat in het Engels, maar de namen en dynamische data is allemaal in het nederlands. Kan dit worden aangepast?
 
 Welke Pagina gaat naar wat?
+
 
 
 
