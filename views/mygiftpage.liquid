@@ -8,13 +8,13 @@
                 {% for gift in savedGifts %}
                     <div class="gift-Box">
                         <a href="/gift/{{ gift.id }}">
-                            <ul>
-                                <li><img src="{{ gift.image }}" alt=""></li>
-                                <li>{{ gift.name }}</li>
-                                <li>{{ gift.spotter }}</li>
-                                <li><img src="/images/girl1.png" alt=""><img src="/images/user1.png" alt="">+{{ gift.saved }}<p>Saved</p></li>
-                                <li><img src="/images/gifticon.png" alt="">+{{ gift.given }}<p>Given</p></li>
-                            </ul>
+                            <article>
+                                <img src="{{ gift.image }}" alt=""></li>
+                                <h3>{{ gift.name }}</h3>
+                                <p>{{ gift.spotter }}</p>
+                                <img src="/images/girl1.png" alt=""><img src="/images/user1.png" alt=""><p>+{{ gift.saved }}<p>Saved</p>
+                                <img src="/images/gifticon.png" alt=""><p>+{{ gift.given }}Given</p>
+                            </article>
                         </a>
                     </div>
                 {% endfor %}

@@ -54,6 +54,10 @@ body{
         font-size: var(--h2);
     }
 
+    h2.slogan{
+        font-size: var(--h3);
+    }
+
     h3{
         font-size: var(--h3);
         margin: 0;
@@ -85,7 +89,7 @@ body{
                 }
             }
         }
-        h3{
+        h2.slogan{
             @media (min-width: 0px) {
                 margin: 0;
             }
@@ -124,8 +128,8 @@ body{
             .list-Button-Box{
                 margin-top: -50px;
                 .list-Button{
-                    width: 150px;
-                    height: 40px;
+                    width: 170px;
+                    height: 50px;
                     #text{
                         display: inline-block;
                     }
@@ -141,7 +145,7 @@ body{
     /*----------------------------------- Buttons --------------------------------------*/
 
 /* Algemene button styling */
-button{
+.add-List-Button{
     font-family: var(--main-font);
     font-weight: var(--semi-bold);
     margin: 5px;
@@ -149,9 +153,19 @@ button{
     box-shadow: 5px 3px 10px rgb(0 0 0 / 0.2);
 }
 
+.list-Button-Box, .profile-Button-Box{
+    font-family: var(--main-font);
+    font-weight: var(--semi-bold);
+    margin: 5px;
+    background-color: var(--button-background-color);
+    box-shadow: 5px 3px 10px rgb(0 0 0 / 0.2);
+    border-radius: 50px;
+}
+
 .list-Button{
     display: flex;
     align-items: center;
+    justify-content: center;
     border: 1px solid #E8E8E8;
     border-radius: 50px;
     img{
@@ -162,6 +176,9 @@ button{
 }
 
 .profile-Button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 50%;
     border: 1px solid #E8E8E8;
     height: 50px;

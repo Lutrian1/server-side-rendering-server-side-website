@@ -2,8 +2,9 @@
  
 <main>
     <nav>
-        <a href="/">
-            <button class="back-Button"><div class="back-Arrow">↵</div>Back</button>
+        <a href="/" class="back-Button">
+            <p class="back-Arrow">↵</p>
+            <p>Back</p>
         </a>
     </nav>
     <div class="left-Section">
@@ -12,7 +13,14 @@
     <div class="Right-Section">
         <section class="top-Right-Section">
             <h2>{{ specificGift.name }}</h2>
-            <button class="add-To-Button">Add to<div class="listIcon"></div></button>
+            <form action="/save-gift" method="POST">
+                <input type="hidden" name="giftId" value="{{ gift.id }}">
+                <button type="submit" class="add-List-Button">
+                    <div class="list-Icon">
+                        <div class="plus-Icon">+</div>
+                    </div>
+                </button>
+            </form>
             <div class="show-Users">
                 <img src="/images/girl1.png" alt=""><img src="/images/user1.png" alt="">+{{ gift.saved }} <p>Saved</p>
                 <img src="/images/gifticon.png" alt="">+{{ gift.given }} <p>Given</p>
@@ -34,13 +42,15 @@
                 </div>
             </div>
         </section>
-        <section class="bottom-Right-Section"></section>
+        <section class="bottom-Right-Section">
+            
+        </section>
         <h2>Where To Buy</h2>
         <a href="{{ specificGift.shop_url }}">
             <div class="suggestion-Item-Box">
                 <div>
                     <img src="" alt="">
-                    <img src="/images/shopicon.png" alt="Shop button" aria-label="Buy item at {{ specificGift.shop_name }}">
+                    <img src="/images/shopicon.png" alt="Buy item at {{ specificGift.shop_name }}">
                 </div>
                 <p>{{ specificGift.amount}}</p>
                 <p>{{ specificGift.shop_name }}</p>

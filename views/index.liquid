@@ -3,7 +3,6 @@
 <main>
     <section class="chat-Tab">
         <div class="suggestion-Box">
-            <h2>I'm looking for a gift for...</h2>
             <!-- 
             <select name="Him/Her" class="suggestion-Button-1">
                 <option value="Him">Him</option>
@@ -19,12 +18,12 @@
         </div>
         <search class="search-Item-Box">
             <form action="">
-              <label for="search">I'm looking for a gift for..</label>
-              <div class="mic-Icon"></div>
-              <input type="search" id="search" name="q" />
-              <button type="submit">
-                <div class="magnifying-Glass"></div>
-              </button>
+                <h2>I'm looking for a gift for...</h2>
+                <div class="mic-Icon"></div>
+                <input type="search" id="search" name="search" />
+                <button type="submit">
+                    <div class="magnifying-Glass"></div>
+                </button>
             </form>
         </search>
         <div class="show-Active-Users-Box">
@@ -42,40 +41,34 @@
             <a href="/profile">
                 <p>Create a list for your best friend</p>
                 <img src="/images/girl1.png" alt="">
-                <button>Register or Log in</button>
+                <p>Register or Log in</p>
             </a>
         </div>
         {% for gift in giftresult %}
-            <div class="gift-Box">
+            <article class="gift-Box">
                 <a href="/gift/{{ gift.id }}">
-                    <ul>
-                        <li>
-                            <form action="/save-gift" method="POST">
-                                <input type="hidden" name="giftId" value="{{ gift.id }}">
-                                <button type="submit" class="add-List-Button">
-                                    <div class="list-Icon">
-                                        <div class="plus-Icon">+</div>
-                                    </div>
-                                </button>
-                            </form>
-                        </li>
-                        <li>
-                            <img src="{{ gift.image }}" alt="" class="cover-Image">
-                        </li>
-                        <li><h3>{{ gift.name }}</h3></li>
-                        <li>Spotter: {{ gift.spotter }}</li>
-                        <li class="bottom-Row">
+                    <div class="gift-Content">
+                        <form action="/save-gift" method="POST">
+                            <input type="hidden" name="giftId" value="{{ gift.id }}">
+                            <button type="submit" class="add-List-Button">
+                                <div class="list-Icon">
+                                    <div class="plus-Icon">+</div>
+                                </div>
+                            </button>
+                        </form>
+                        <img src="{{ gift.image }}" alt="" class="cover-Image">
+                        <h3>{{ gift.name }}</h3>
+                        <p>Spotter: {{ gift.spotter }}</p>
+                        <div class="bottom-Row">
                             <img src="/images/girl1.png" alt="" class="user-Icon1">
                             <img src="/images/user1.png" alt="" class="user-Icon2">
-                            +{{ gift.saved }}
-                            <p>Saved</p>
+                            <p>+{{ gift.saved }}Saved</p>
                             <img src="/images/gifticon.png" alt="" class="gift-Icon">
-                            +{{ gift.given }}
-                            <p>Given</p>
-                        </li>
-                    </ul>
+                            <p>+{{ gift.given }} Given</p>
+                        </div>
+                    </div>
                 </a>
-            </div>
+            </article>
         {% endfor %}
     </section>
     <a href="/mysavedgifts">View Saved Items</a>
