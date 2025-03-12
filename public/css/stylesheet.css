@@ -1,151 +1,150 @@
-html, body{
+html, body {
     margin: 1vw;
     padding: 0;
     font-family: var(--main-font);
     background-color: var(--main-background-color);
-    li{
+    li {
         list-style: none;
     }
-    a{
+    a {
         text-decoration: none;
-        color:var(--main-text-color);
+        color: var(--main-text-color);
     }
 }
 
-body{
-    /*----------------------------------- ALLE VARIABLEN --------------------------------------*/
+body {
+    /*----------------------------------- ALL VARIABLES --------------------------------------*/
 
-    /*fonts*/  
-        --main-font: 'Parkinsans', sans-serif;
+    /* Fonts */
+    --main-font: 'Parkinsans', sans-serif;
 
-    /* font-size-headings */
-        --h1: 60px;
-        --h2: 40px;
-        --h3: 24px;
-        --main-p: 16.6px;
-        --big-text: 20px;
-        --big-important-text: 24px;
+    /* Font sizes for headings */
+    --h1: 60px;
+    --h2: 40px;
+    --h3: 24px;
+    --main-p: 16.6px;
+    --big-text: 20px;
+    --big-important-text: 24px;
 
-    /*font-weight*/
-        --regular: 400;
-        --medium: 500;
-        --semi-bold: 600;
-        --bold: 800;
+    /* Font weights */
+    --regular: 400;
+    --medium: 500;
+    --semi-bold: 600;
+    --bold: 800;
 
-    /*colors*/
-        --primary-color: #FEFCFA;
-        --main-text-color: #000000;
-        --alt-text-color: #FFFFFF;
-        --main-background-color: #F6F5F5; 
-        --results-tab-background-color: #EDEDED;
+    /* Colors */
+    --primary-color: #FEFCFA;
+    --main-text-color: #000000;
+    --alt-text-color: #FFFFFF;
+    --main-background-color: #F6F5F5;
+    --results-tab-background-color: #EDEDED;
 
-        
-    /*Buttons*/
-        --button-background-color: #FFFFFF;
+    /* Buttons */
+    --button-background-color: #FFFFFF;
 
-    /*----------------------------------- VARIABLEN MEEGEVEN AAN BIJBEHOORENDE HTML --------------------------------------*/
-    
-    h1{
+    /*----------------------------------- VARIABLES FOR ALL HEADINGS AND OTHER ITEMS --------------------------------------*/
+
+    h1 {
         font-size: var(--h1);
-        font-weight: var(--bold); 
+        font-weight: var(--bold);
     }
 
-    h2{
+    h2 {
         font-size: var(--h2);
     }
 
-    h2.slogan{
+    h2.slogan {
         font-size: var(--h3);
     }
 
-    h3{
+    h3 {
         font-size: var(--h3);
         margin: 0;
         padding: 0;
     }
 
-    p{
+    p {
         font-size: var(--main-p);
     }
 
-    /*----------------------------------- HEADER STYLING, DIT GELDT DUS VOOR ELKE PAGINA --------------------------------------*/
+    /*----------------------------------- HEADER STYLING, APPLIES TO EVERY PAGE --------------------------------------*/
 
-    header{
-        h1{
+    header {
+        h1 {
             --cadeau-strik-image-width: 39.4px;
-            margin: 26px 0px 0px calc(44px - var(--cadeau-strik-image-width)); /* Min Grootte van de Image = -39.4px */
+            margin: 26px 0px 0px calc(44px - var(--cadeau-strik-image-width)); /* Minus image size = -39.4px */
             letter-spacing: 0.5rem;
-            span.Logo{
+            span.Logo {
                 font-size: 80px;
                 @media (min-width: 0px) {
-                    margin-left: -40px
+                    margin-left: -40px;
                 }
                 @media (min-width: 1340px) {
-                    margin-left: 0px
+                    margin-left: 0px;
                 }
-                img{
+                img {
                     position: relative;
-                    left: 59px; /* Cadeau strik in het midden van M*/
+                    left: 59px; /* Span centered on M */
                 }
             }
         }
-        h2.slogan{
+        h2.slogan {
             @media (min-width: 0px) {
                 margin: 0;
             }
             @media (min-width: 1340px) {
-                margin: 0px auto 0px 44px; /* Min Grootte van de Image = -39.4px */
+                margin: 0px auto 0px 44px; /* Minus image size = -39.4px */
             }
         }
-        nav{
+        nav {
             display: flex;
             justify-content: flex-end;
             align-items: center;
         }
         @media (min-width: 0px) {
-            span.Rest{
+            span.Rest {
                 display: none;
             }
-            .list-Button-Box{
+            .list-Button-Box {
                 margin-top: -115px;
-                .list-Button{
+                .list-Button {
                     position: sticky;
                     width: 50px;
                     height: 50px;
-                    #text{
+                    #text {
                         display: none;
                     }
                 }
             }
-            .profile-Button-Box{
+            .profile-Button-Box {
                 margin-top: -115px;
-            } 
+            }
         }
         @media (min-width: 1340px) {
-            span.Rest{
+            span.Rest {
                 display: inline-block;
             }
-            .list-Button-Box{
+            .list-Button-Box {
                 margin-top: -50px;
-                .list-Button{
+                .list-Button {
                     width: 170px;
                     height: 50px;
-                    #text{
+                    #text {
                         display: inline-block;
                     }
-                } 
+                }
             }
-            .profile-Button-Box{
+            .profile-Button-Box {
                 margin-top: -50px;
-            } 
+            }
         }
     }
 }
 
-    /*----------------------------------- Buttons --------------------------------------*/
+/*----------------------------------- Buttons --------------------------------------*/
 
-/* Algemene button styling */
-.add-List-Button{
+/* General Button Styling */
+.add-List-Button {
     font-family: var(--main-font);
     font-weight: var(--semi-bold);
     margin: 5px;
@@ -153,7 +152,7 @@ body{
     box-shadow: 5px 3px 10px rgb(0 0 0 / 0.2);
 }
 
-.list-Button-Box, .profile-Button-Box{
+.list-Button-Box, .profile-Button-Box {
     font-family: var(--main-font);
     font-weight: var(--semi-bold);
     margin: 5px;
@@ -162,20 +161,22 @@ body{
     border-radius: 50px;
 }
 
-.list-Button{
+/* Other Button Styling */
+
+.list-Button {
     display: flex;
     align-items: center;
     justify-content: center;
     border: 1px solid #E8E8E8;
     border-radius: 50px;
-    img{
+    img {
         margin-left: 10px;
         width: 15px;
         height: 20px;
     }
 }
 
-.profile-Button{
+.profile-Button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -183,7 +184,7 @@ body{
     border: 1px solid #E8E8E8;
     height: 50px;
     width: 50px;
-    img{
+    img {
         width: 25px;
         height: 30px;
     }
