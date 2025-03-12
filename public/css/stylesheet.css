@@ -65,6 +65,7 @@ body {
 
     p {
         font-size: var(--main-p);
+        margin: 0;
     }
 
     /*----------------------------------- HEADER STYLING, APPLIES TO EVERY PAGE --------------------------------------*/
@@ -96,6 +97,7 @@ body {
                 margin: 0px auto 0px 44px; /* Minus image size = -39.4px */
             }
         }
+        
         nav {
             display: flex;
             justify-content: flex-end;
@@ -114,6 +116,9 @@ body {
                     #text {
                         display: none;
                     }
+                    .save-Icon{
+                        margin: 0;
+                    }
                 }
             }
             .profile-Button-Box {
@@ -131,6 +136,9 @@ body {
                     height: 50px;
                     #text {
                         display: inline-block;
+                    }
+                    .save-Icon{
+                        margin-left: 5px;
                     }
                 }
             }

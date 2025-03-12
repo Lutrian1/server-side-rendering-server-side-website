@@ -20,6 +20,7 @@
             <form action="">
                 <h2>I'm looking for a gift for...</h2>
                 <div class="mic-Icon"></div>
+                <label>Search gifts</label>
                 <input type="search" id="search" name="search" />
                 <button type="submit">
                     <div class="magnifying-Glass"></div>
@@ -50,14 +51,14 @@
                     <div class="gift-Content">
                         <form action="/save-gift" method="POST">
                             <input type="hidden" name="giftId" value="{{ gift.id }}">
-                            <button type="submit" class="add-List-Button">
+                            <button type="submit" class="add-List-Button" aria-label="Add to your List">
                                 <div class="list-Icon">
                                     <div class="plus-Icon">+</div>
                                 </div>
                             </button>
                         </form>
                         <img src="{{ gift.image }}" alt="" class="cover-Image">
-                        <h3>{{ gift.name }}</h3>
+                        <h3>{{ gift.name}}</h3>
                         <p>Spotter: {{ gift.spotter }}</p>
                         <div class="bottom-Row">
                             <img src="/images/girl1.png" alt="" class="user-Icon1">
