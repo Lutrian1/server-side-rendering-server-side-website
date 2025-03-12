@@ -33,6 +33,10 @@ https://github.com/user-attachments/assets/cd4ed91e-428a-47ae-b705-9505baed3e39
 
 <img width="785" alt="image" src="https://github.com/user-attachments/assets/0b5dc4ef-72c1-4abf-a761-754f174bf187" />
 
+Om ervoor te zorgen dat iedereen de pagina kan navigeren maak ik gebruik van aria-labels, articles en lege alts bij images. Ook sla ik geen heading levels over. 
+
+Zie: https://github.com/Lutrian1/server-side-rendering-server-side-website/issues/3, Over wat ik eraan heb gedaan om mijn site toegangkelijk te krijgen.
+
 ## Kenmerken
 
 ### Liquid Templates
