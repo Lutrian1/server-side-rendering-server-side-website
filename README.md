@@ -77,6 +77,8 @@ Om het specifieke cadeau toe te voegen, gebruik ik de GiftId variabele. De speci
 
 ### Reroute en 404.
 
+https://github.com/user-attachments/assets/553cfdf9-83e4-4daf-89b8-136db5a0a9a8
+
 #### Reroute: 
 
 https://github.com/Lutrian1/server-side-rendering-server-side-website/blob/3610cfdfb0eb07aa231b6cdf48787bc3221ecf56/server.js#L86-L88
