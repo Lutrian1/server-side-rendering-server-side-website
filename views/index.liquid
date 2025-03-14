@@ -1,73 +1,51 @@
-{% render 'partials/head.liquid', title: 'Homepage', logo: '<span class="Logo"><img src="/images/schaarinM.png" alt="">M</span><span class="Rest">ILLEDONI</span>' , slogan: 'Finding and sharing gift ideas' %}
+{% render 'partials/head.liquid', title: 'Homepage', logo: '<a href="/" class="Logo" aria-label="Milledoni"><img src="/images/mainLogo.png" alt="" class="M"><img src="/images/restTextLogo.png" alt="" class="illedoni"></a>' , slogan: 'Finding and sharing gift ideas' %}
 
 <main>
     <section class="chat-Tab">
-        <div class="suggestion-Box">
-            <!-- 
-            <select name="Him/Her" class="suggestion-Button-1">
-                <option value="Him">Him</option>
-                <option value="Her">Her</option>
-            </select>
-            <select name="age" class="suggestion-Button-2">
-                <option value="">Age</option>
-                <option value="0-3">0-3</option>
-                <option value="5-8">5-8</option>
-                <option value="9-12">9-12</option>
-            </select>
-            !-->
-        </div>
         <search class="search-Item-Box">
             <form action="">
                 <h2>I'm looking for a gift for...</h2>
-                <div class="mic-Icon"></div>
+                <img src="" alt="" class="mic-Icon">
                 <label>Search gifts</label>
                 <input type="search" id="search" name="search" />
                 <button type="submit" aria-label="Submit search">
-                    <div class="magnifying-Glass"></div>
+                    <img src="" alt="" class="magnifying-Glass">
                 </button>
             </form>
         </search>
-        <div class="show-Active-Users-Box">
-            <ul>
-                <li class="user1"><img src="/images/user1.png" alt=""></li>
-                <li class="user2"><img src="/images/user2.png" alt=""></li>
-                <li class="user3"><img src="/images/user3.png" alt=""></li>
-                <li class="user-Extra"><img src="/images/usersExtra.png" alt="Over +1 Million  Users"></li>
-                <li><p>Unisciti alla nostra community di spotters</p></li>
-            </ul>
-        </div>
+        <ul class="show-Active-Users-Box">
+            <li class="user1"><img src="/images/user1.png" alt=""></li>
+            <li class="user2"><img src="/images/user2.png" alt=""></li>
+            <li class="user3"><img src="/images/user3.png" alt=""></li>
+            <li class="user-Extra"><img src="/images/usersExtra.png" alt="Over +1 Million  Users"></li>
+            <li><p>Unisciti alla nostra community di spotters</p></li>
+        </ul>
     </section>
     <section class="results-Tab">
-        <div class="gift-Box-Create-List">
+        <article class="gift-Box-Create-List">
             <a href="/profile">
                 <p>Create a list for your best friend</p>
                 <img src="/images/girl1.png" alt="">
                 <p>Register or Log in</p>
             </a>
-        </div>
+        </article>
         {% for gift in giftresult %}
             <article class="gift-Box">
                 <a href="/gift/{{ gift.id }}">
-                    <div class="gift-Content">
-                        <form action="/save-gift" method="POST">
-                            <input type="hidden" name="giftId" value="{{ gift.id }}">
-                            <button type="submit" class="add-List-Button" aria-label="Add to your List">
-                                <div class="list-Icon">
-                                    <div class="plus-Icon">+</div>
-                                </div>
-                            </button>
-                        </form>
-                        <img src="{{ gift.image }}" alt="" class="cover-Image">
-                        <h3>{{ gift.name}}</h3>
-                        <p>Spotter: {{ gift.spotter }}</p>
-                        <div class="bottom-Row">
-                            <img src="/images/girl1.png" alt="" class="user-Icon1">
-                            <img src="/images/user1.png" alt="" class="user-Icon2">
-                            <p>+{{ gift.saved }}Saved</p>
-                            <img src="/images/gifticon.png" alt="" class="gift-Icon">
-                            <p>+{{ gift.given }} Given</p>
-                        </div>
-                    </div>
+                    <form action="/save-gift" method="POST">
+                        <input type="hidden" name="giftId" value="{{ gift.id }}">
+                        <button type="submit" class="add-List-Button" aria-label="Add to your List">+</button>
+                    </form>
+                    <img src="{{ gift.image }}" alt="" class="cover-Image">
+                    <h3>{{ gift.name}}</h3>
+                    <p>Spotter: {{ gift.spotter }}</p>
+                    <footer class="bottom-Row">
+                        <img src="/images/girl1.png" alt="" class="user-Icon1">
+                        <img src="/images/user1.png" alt="" class="user-Icon2">
+                        <p>+{{ gift.saved }}Saved</p>
+                        <img src="/images/gifticon.png" alt="" class="gift-Icon">
+                        <p>+{{ gift.given }} Given</p>
+                    </footer>
                 </a>
             </article>
         {% endfor %}

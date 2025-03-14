@@ -1,4 +1,4 @@
-{% render 'partials/head.liquid', title: 'Homepage', logo: '<span><img src="/images/schaarinM.png" alt="">M</span>ILLEDONI' , slogan: 'Finding and sharing gift ideas' %}
+{% render 'partials/head.liquid', title: 'Homepage', logo: '<a href="/" class="Logo" aria-label="Milledoni"><img src="" alt="" class="M"><img src="" alt="" class="illedoni"></a>' , slogan: 'Finding and sharing gift ideas' %}
  
 <main>
     <nav>
@@ -15,16 +15,12 @@
             <h2>{{ specificGift.name }}</h2>
             <form action="/save-gift" method="POST">
                 <input type="hidden" name="giftId" value="{{ gift.id }}">
-                <button type="submit" class="add-List-Button">
-                    <div class="list-Icon">
-                        <div class="plus-Icon">+</div>
-                    </div>
-                </button>
+                <button type="submit" class="add-List-Button">+</button>
             </form>
-            <div class="show-Users">
+            <dl class="show-Users">
                 <img src="/images/girl1.png" alt=""><img src="/images/user1.png" alt="">+{{ gift.saved }} <p>Saved</p>
                 <img src="/images/gifticon.png" alt="">+{{ gift.given }} <p>Given</p>
-            </div>
+            </dl>
         </section>
         <section class="middle-Right-Section">
             <div class="part1">
@@ -47,14 +43,10 @@
         </section>
         <h2>Where To Buy</h2>
         <a href="{{ specificGift.shop_url }}">
-            <div class="suggestion-Item-Box">
-                <div>
-                    <img src="" alt="">
-                    <img src="/images/shopicon.png" alt="Buy item at {{ specificGift.shop_name }}">
-                </div>
-                <p>{{ specificGift.amount}}</p>
-                <p>{{ specificGift.shop_name }}</p>
-            </div>
+            <img src="" alt="">
+            <img src="/images/shopicon.png" alt="Buy item at {{ specificGift.shop_name }}">
+            <p>{{ specificGift.amount}}</p>
+            <p>{{ specificGift.shop_name }}</p>
         </a>
     </div>
 </main>
