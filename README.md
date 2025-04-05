@@ -105,10 +105,9 @@ Veel staat in het Engels, maar de namen en dynamische data zijn allemaal in het 
 
 Welke pagina gaat naar wat?
 
+### Debriefing:
 
-
-
-
+[Milledoni.-.Briefing.-.debriefing.pdf](https://github.com/user-attachments/files/19618872/Milledoni.-.Briefing.-.debriefing.pdf)
 
 
 
