@@ -107,7 +107,12 @@ Welke pagina gaat naar wat?
 
 ### Debriefing:
 
+oud:
 [Milledoni.-.Briefing.-.debriefing.pdf](https://github.com/user-attachments/files/19618872/Milledoni.-.Briefing.-.debriefing.pdf)
+
+na feedback:
+[Milledoni - Briefing.pdf](https://github.com/user-attachments/files/19622355/Milledoni.-.Briefing.pdf)
+
 
 
 
